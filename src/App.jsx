@@ -1,5 +1,5 @@
 import Grid from './Grid'
-import './App.css'
+import './styles/App.css'
 
 export default function App() {
     return(

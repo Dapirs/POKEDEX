@@ -1,8 +1,9 @@
 import React from 'react'
 import Card from './Card'
+import './styles/Grid.css'
 
 export default function Grid() {
-    const [pokemons, setPokemons] = React.useState(null);
+    const [pokemons, setPokemons] = React.useState([]);
     const [loading, setLoading] = React.useState(true);
 
     React.useEffect(() => {
@@ -19,9 +20,19 @@ export default function Grid() {
         return <p>Loading...</p>;
     }
 
-    const selectedPokemon = pokemons.map(pokemon => (
-        <Card key={pokemon.name} name={pokemon.name} />
-    ));
+    const selectedPokemon = pokemons.map(pokemon => {
+        const id = pokemon.url.split('/')[6]
+        const imgUrl = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png`
+
+
+        return(
+          <Card
+            key={pokemon.name}
+            name={pokemon.name}
+            img = {imgUrl}
+
+          />
+        )});
 
     return <main>{selectedPokemon}</main>;
 }
