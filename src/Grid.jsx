@@ -7,7 +7,7 @@ export default function Grid() {
     const [loading, setLoading] = React.useState(true);
 
     React.useEffect(() => {
-        fetch('https://pokeapi.co/api/v2/pokemon?limit=10&offset=0')
+        fetch('https://pokeapi.co/api/v2/pokemon?limit=1328&offset=0')
             .then(res => res.json())
             .then(res => {
                 setPokemons(res.results);
@@ -22,7 +22,7 @@ export default function Grid() {
 
     const selectedPokemon = pokemons.map(pokemon => {
         const id = pokemon.url.split('/')[6]
-        const imgUrl = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png`
+        const imgUrl = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${id}.png`
 
 
         return(
