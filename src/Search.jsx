@@ -1,11 +1,17 @@
 import './styles/Search.css'
 
-export default function Search(){
+export default function Search(props){
+    function handleChange(e){
+        e.preventDefault();
+    }
     return(
-        <form>
-            <input className='searchbar'/>
-            <button className='searchbutton'>Search</button>
-        </form>
+        <>
+            <input type='text'
+                   className='searchbar'
+                   value={props.searchTerm}
+                   onChange={props.searchUpdate}
+            />
+        </>
 
     )
 }

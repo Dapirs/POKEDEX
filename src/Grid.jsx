@@ -1,10 +1,12 @@
 import React from 'react'
 import Card from './Card'
 import './styles/Grid.css'
+import Search from "./Search.jsx";
 
 export default function Grid() {
     const [pokemons, setPokemons] = React.useState([]);
     const [loading, setLoading] = React.useState(true);
+    const [searchTerm, setSearchTerm] = React.useState('');
 
     React.useEffect(() => {
         fetch('https://pokeapi.co/api/v2/pokemon?limit=1328&offset=0')
@@ -20,19 +22,38 @@ export default function Grid() {
         return <p>Loading...</p>;
     }
 
-    const selectedPokemon = pokemons.map(pokemon => {
+    function searchUpdate(e){
+        console.log("Tyapang...");
+        setSearchTerm(e.target.value);
+    }
+
+    const filteredPokemons = pokemons.filter(pokemon =>
+        pokemon.name.toLowerCase().includes(searchTerm.toLowerCase())
+    )
+    const selectedPokemon = filteredPokemons.map(pokemon => {
         const id = pokemon.url.split('/')[6]
         const imgUrl = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${id}.png`
 
 
         return(
-          <Card
-            key={pokemon.name}
-            name={pokemon.name}
-            img = {imgUrl}
+                <Card
+                    key={pokemon.name}
+                    name={pokemon.name}
+                    img = {imgUrl}
+                />
 
-          />
         )});
 
-    return <main>{selectedPokemon}</main>;
+    return(
+        <>
+            <Search
+                searchTerm={searchTerm}
+                searchUpdate={searchUpdate}
+            />
+            <main>
+                {selectedPokemon}
+            </main>
+        </>
+        )
+
 }
