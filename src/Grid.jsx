@@ -12,6 +12,7 @@ export default function Grid() {
     const [hasMore, setHasMore] = React.useState(true);
     const [loadingPage, setLoadingPage] = React.useState(false);
     const [searchTerm, setSearchTerm] = React.useState('');
+    const isSearching = searchTerm.trim().length > 0;
     const [selectedPokemonId, setSelectedPokemonId] = React.useState(null);
     const [selectedPokemonDetails, setSelectedPokemonDetails] = React.useState(null);
     const [loadingSelectedPokemon, setLoadingSelectedPokemon] = React.useState(false);
@@ -106,6 +107,7 @@ export default function Grid() {
     const filteredPokemons = pokemons.filter(pokemon =>
         pokemon.name.toLowerCase().includes(searchTerm.toLowerCase())
     )
+    const showLoadMoreHint = isSearching && filteredPokemons.length === 0 && !loadingPage;
 
     const selectedPokemon = filteredPokemons.map((pokemon) => (
         <Card
@@ -131,6 +133,26 @@ export default function Grid() {
             <main>
                 {selectedPokemon}
                 {loadingPage && skeletonCards}
+                {showLoadMoreHint && (
+                    <p style={{
+                        gridColumn: '1 / -1',
+                        textAlign: 'center',
+                        color: '#6b7280',
+                        padding: '32px 16px',
+                        margin: 0
+                    }}>
+                        No results in loaded Pokemon.{' '}
+                        {hasMore && (
+                            <button
+                                type="button"
+                                onClick={() => fetchPokemonPage(offset)}
+                                style={{ background: 'none', border: 'none', color: '#ef4444', fontWeight: 700, cursor: 'pointer', fontSize: 'inherit' }}
+                            >
+                                Load more to search further.
+                            </button>
+                        )}
+                    </p>
+                )}
             </main>
             {hasMore && (
                 <div className="load-more-wrapper">

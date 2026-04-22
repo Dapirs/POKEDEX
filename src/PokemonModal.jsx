@@ -86,7 +86,15 @@ export default function PokemonModal({ pokemon, isLoading, onClose }) {
                 </button>
 
                 {isLoading ? (
-                    <div className="modal-loading">Loading details...</div>
+                    <div className="modal-loading">
+                        <svg className="pokeball-loader" viewBox="0 0 100 100">
+                            <circle cx="50" cy="50" r="48" fill="#fff" stroke="#111" strokeWidth="5" />
+                            <path d="M2 50 A48 48 0 0 1 98 50 L2 50 Z" fill="#ef4444" />
+                            <line x1="4" y1="50" x2="96" y2="50" stroke="#111" strokeWidth="5" />
+                            <circle cx="50" cy="50" r="14" fill="#fff" stroke="#111" strokeWidth="5" />
+                            <circle cx="50" cy="50" r="6" fill="#d1d5db" />
+                        </svg>
+                    </div>
                 ) : (
                     <>
                         <h2 className="modal-name">{capitalizeName(pokemon.name)}</h2>

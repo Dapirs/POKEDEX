@@ -134,8 +134,17 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 1rem;
-    font-weight: 600;
-    color: #6b7280;
+}
+
+.pokeball-loader {
+    width: 64px;
+    height: 64px;
+    animation: spin 0.9s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
 }
 
