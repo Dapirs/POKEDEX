@@ -6,7 +6,10 @@
 .app-header {
 	display: flex;
 	justify-content: center;
-	padding: 6px 0 14px;
+	background: linear-gradient(135deg, #ef4444 0%, #b91c1c 100%);
+	border-radius: 0 0 24px 24px;
+	padding: 16px 0 20px;
+	box-shadow: 0 4px 18px rgba(239, 68, 68, 0.25);
 }
 
 .pokedex-title {
@@ -16,14 +19,8 @@
 	margin: 0;
 	font-size: clamp(2rem, 3.5vw, 2.8rem);
 	font-weight: 900;
-	letter-spacing: 0.04em;
-	color: #ef4444;
-	-webkit-text-stroke: 1.5px #111;
-	text-shadow:
-		1px 1px 0 #111,
-		-1px 1px 0 #111,
-		1px -1px 0 #111,
-		-1px -1px 0 #111;
+	letter-spacing: 0.06em;
+	color: #fff;
 }
 
 .pokedex-icon {

@@ -1,7 +1,7 @@
 .card{
     appearance: none;
     background-clip: padding-box;
-    border: 1px solid rgba(0, 0, 0, 0.08);
+    border: 1.5px solid rgba(255, 255, 255, 0.7);
     border-radius: 14px;
     height: 200px;
     width: 160px;
@@ -11,14 +11,15 @@
     justify-content: center;
     align-items: center;
     gap: 4px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.06);
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+    backdrop-filter: blur(4px);
     cursor: pointer;
     transition: transform 0.14s ease, box-shadow 0.14s ease;
 }
 
 .card:hover{
-    transform: translateY(-2px);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    transform: translateY(-5px);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.14);
 }
 
 .card:focus-visible{
@@ -41,7 +42,7 @@
 
 .card-name{
     margin: 0;
-    font-size: 1rem;
+    font-size: 0.95rem;
     font-weight: 700;
     text-transform: capitalize;
 }
@@ -59,7 +60,9 @@
     padding: 3px 9px;
     font-size: 0.72rem;
     font-weight: 600;
+    letter-spacing: 0.04em;
     line-height: 1;
     color: #fff;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
     text-transform: capitalize;
 }
