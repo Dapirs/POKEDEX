@@ -1,11 +1,65 @@
 .card{
-    border: 1px solid black;
-    border-radius: 10px;
-    justify-content: center;
-    height: 150px;
-    width: 150px;
+    appearance: none;
+    background-clip: padding-box;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    border-radius: 14px;
+    height: 200px;
+    width: 160px;
     margin: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.06);
+    cursor: pointer;
+    transition: transform 0.14s ease, box-shadow 0.14s ease;
 }
-img{
+
+.card:hover{
+    transform: translateY(-2px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.card:focus-visible{
+    outline: 3px solid rgba(239, 68, 68, 0.35);
+    outline-offset: 2px;
+}
+
+.card img{
     max-width: 70%;
+    max-height: 90px;
+    object-fit: contain;
+}
+
+.card-id{
+    margin: 0;
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: rgba(0, 0, 0, 0.65);
+}
+
+.card-name{
+    margin: 0;
+    font-size: 1rem;
+    font-weight: 700;
+    text-transform: capitalize;
+}
+
+.type-badges{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 6px;
+    padding: 0 8px;
+}
+
+.type-badge{
+    border-radius: 9999px;
+    padding: 3px 9px;
+    font-size: 0.72rem;
+    font-weight: 600;
+    line-height: 1;
+    color: #fff;
+    text-transform: capitalize;
 }

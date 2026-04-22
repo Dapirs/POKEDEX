@@ -1,0 +1,123 @@
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.55);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    z-index: 1000;
+}
+
+.pokemon-modal {
+    width: min(560px, 100%);
+    max-height: 90vh;
+    overflow-y: auto;
+    background-color: #fff;
+    border-radius: 16px;
+    padding: 18px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
+}
+
+.modal-close {
+    margin-left: auto;
+    display: block;
+    border: none;
+    border-radius: 9999px;
+    padding: 8px 14px;
+    font-weight: 600;
+    color: #fff;
+    background-color: #111;
+    cursor: pointer;
+}
+
+.modal-name {
+    margin: 10px 0 8px;
+    text-align: center;
+    font-size: 1.8rem;
+}
+
+.modal-image {
+    width: min(230px, 70%);
+    display: block;
+    margin: 0 auto;
+}
+
+.modal-id {
+    margin: 6px 0 10px;
+    text-align: center;
+    font-weight: 700;
+    color: #4b5563;
+}
+
+.modal-types {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 14px;
+}
+
+.modal-type-badge {
+    border-radius: 9999px;
+    padding: 4px 10px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: #fff;
+    text-transform: capitalize;
+}
+
+.modal-stats {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.stat-row {
+    display: grid;
+    grid-template-columns: 72px 1fr 36px;
+    align-items: center;
+    gap: 10px;
+}
+
+.stat-label,
+.stat-value {
+    font-size: 0.88rem;
+    font-weight: 600;
+}
+
+.stat-track {
+    width: 100%;
+    height: 10px;
+    border-radius: 9999px;
+    background-color: #e5e7eb;
+    overflow: hidden;
+}
+
+.stat-fill {
+    height: 100%;
+    border-radius: inherit;
+    transition: width 0.2s ease;
+}
+
+.modal-measurements {
+    margin-top: 14px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.modal-measurements p {
+    margin: 0;
+}
+
+.modal-loading {
+    min-height: 220px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #6b7280;
+}
+
